@@ -18,8 +18,8 @@ class TocMachine(GraphMachine):
                     
     def on_enter_state16(self, update):
         update.message.reply_text("Info(introduction)：")
-        html = urlopen("http://www.imdb.com/title/tt0034583/")           	       
-        background= BeautifulSoup(html.read())
+        html = urlopen("https://en.wikipedia.org/wiki/Casablanca_(film)") 
+        background= BeautifulSoup(html.read(), "lxml")
         #print(background)
         ray=background.find('p')
         update.message.reply_text(ray.text)
